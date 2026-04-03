@@ -7,18 +7,19 @@ async function fetchRandomItem() {
   const type = Math.floor(Math.random() * 3);
 
   if (type === 0) {
-    // Product (FakeStore API)
+    // Product (Dummy JSON API)
     const res = await fetch(
-      "https://fakestoreapi.com/products/" +
-        (Math.floor(Math.random() * 20) + 1)
+      "https://dummyjson.com/products/" + (Math.floor(Math.random() * 100) + 1)
     );
+
     const data = await res.json();
 
     return `
           <div class="card">
-            <img src="${data.image}" />
+            <img class="d_img" src="${data.thumbnail}" />
             <h2>${data.title}</h2>
             <p class="price">$${data.price}</p>
+            <p>${data.description}</p>
           </div>
         `;
   }
@@ -30,7 +31,7 @@ async function fetchRandomItem() {
 
     return `
           <div class="card">
-            <img src="https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg" />
+            <img class="q_img" src="https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg" />
             <p class="quote">"${data.content}"</p>
             <p class="author">- ${data.author}</p>
           </div>
@@ -43,7 +44,7 @@ async function fetchRandomItem() {
 
   return `
         <div class="card">
-          <img src="https://picsum.photos/800/400?random=${Math.random()}" />
+          <img class="f_img" src="https://picsum.photos/800/400?random=${Math.random()}" />
           <p>${data.text}</p>
         </div>
       `;
