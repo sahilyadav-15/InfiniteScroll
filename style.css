@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #eef2f3, #dfe9f3);
+  background: linear-gradient(135deg, #5cafc4, #dfe9f3);
 }
 
 h1 {
@@ -24,11 +24,13 @@ h1 {
 }
 
 .card:hover {
-  transform: scale(1.08);
+  transform: translateY(-6px);
+  background-color: aliceblue;
   transition: 1s;
 }
 
-.q_img .f_img {
+.q_img,
+.f_img {
   width: 100%;
   border-radius: 10px;
   margin-bottom: 15px;

@@ -5,6 +5,7 @@ let loading = false;
 
 async function fetchRandomItem() {
   const type = Math.floor(Math.random() * 3);
+  // const type = 1;
 
   if (type === 0) {
     // Product (Dummy JSON API)
@@ -26,16 +27,19 @@ async function fetchRandomItem() {
 
   if (type === 1) {
     // Quote
-    const res = await fetch("https://api.quotable.io/random");
+    const res = await fetch("https://zenquotes.io/api/random");
     const data = await res.json();
 
-    return `
-          <div class="card">
-            <img class="q_img" src="https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg" />
-            <p class="quote">"${data.content}"</p>
-            <p class="author">- ${data.author}</p>
-          </div>
-        `;
+    console.log(data);
+
+    // return `
+    //       <div class="card">
+    //         <img class="q_img" src="https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 100)}.jpg" />
+    //         <p class="quote">"${data.q}"</p>
+    //         <p class="author">- ${data.a}</p>
+    //         ${data.h}
+    //       </div>
+    //     `;
   }
 
   // Fact
